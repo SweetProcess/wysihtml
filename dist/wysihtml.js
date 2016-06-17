@@ -1,5 +1,5 @@
 /**
- * @license wysihtml v0.6.beta
+ * @license wysihtml v0.6.0-beta
  * https://github.com/Voog/wysihtml
  *
  * Author: Christopher Blum (https://github.com/tiff)
@@ -10,7 +10,7 @@
  *
  */
 var wysihtml = {
-  version: "0.6.beta",
+  version: "0.6.0-beta",
 
   // namespaces
   commands:   {},
@@ -86,7 +86,7 @@ wysihtml.polyfills = function(win, doc) {
 
   }(win.Element.prototype));
 
-  if (!('classList' in doc.documentElement) && win.Object.defineProperty && typeof HTMLElement !== 'undefined') {
+  if (!('classList' in doc.documentElement) && win.Object.defineProperty && typeof HTMLElement !== 'undefined'&& !HTMLElement.prototype.hasOwnProperty('classList')) {
     win.Object.defineProperty(HTMLElement.prototype, 'classList', {
       get: function() {
         var self = this;

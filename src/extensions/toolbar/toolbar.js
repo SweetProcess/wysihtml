@@ -272,8 +272,9 @@
     _preventInstantFocus: function() {
       this.preventFocus = true;
       setTimeout(function() {
-        this.preventFocus = false;
-      }.bind(this),0);
+        // give IE some time to trigger the focus handlers
+        setTimeout(function() {this.preventFocus = false;}.bind(this), 0);
+      }.bind(this), 0);
     },
 
     _updateLinkStates: function() {
